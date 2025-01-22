@@ -6,3 +6,14 @@ module "lambda-with-role"{
   size = 512
   filename = "./zipper.zip"
 }
+
+module "modular-ec2" {
+  source = "./modules/EC2"
+  ec2_ami = "ami-019374baf467d6601"
+  ec2_instance_type = "t2.micro"
+  ec2_tags = {
+    env = "dev"
+    Name = "modular-ec2"
+  }
+}
+
